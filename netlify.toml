@@ -1,4 +1,0 @@
-[[redirects]]
-  from = "/*"
-  to = "/srs/pages/NotFound.jsx"
-  status = 404
