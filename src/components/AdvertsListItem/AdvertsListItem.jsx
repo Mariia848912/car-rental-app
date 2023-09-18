@@ -1,5 +1,8 @@
 import PropTypes from "prop-types";
 import { Placeholder } from "../Placeholder/Placeholder";
+import { cutCity } from "../../utils/cutCity";
+import { cutCountry } from "../../utils/cutCountry";
+import { changeType } from "../../utils/changeType";
 export const AdvertsListItem = ({
   id,
   img,
@@ -25,10 +28,10 @@ export const AdvertsListItem = ({
         <p>{rentalPrice}</p>
       </div>
       <ul>
-        <li>{address}</li>
-        <li>country!!!!!</li>
+        <li>{cutCity(address)}</li>
+              <li>{cutCountry(address)}</li>
         <li>{rentalCompany}</li>
-        <li>{type}</li>
+        <li>{changeType(type)}</li>
         <li>{model}</li>
         <li>{id}</li>
         <li>{accessories[2]}</li>
