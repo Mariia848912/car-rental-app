@@ -1,40 +1,50 @@
-import {  useEffect, useState } from 'react';
-import { fetchAdverts } from '../service/mockapi';
-
+import { useEffect, useState } from "react";
+import { fetchAdverts } from "../service/mockapi";
+import { AdvertsList } from "../components/Advertslist/Advertslist";
+import { limit, totalItems } from "../utils/constant";
 
 const Catalog = () => {
   const [adverts, setAdverts] = useState([]);
   const [page, setPage] = useState(1);
-  const limit = 2;
-    const [isLoading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  // const getAdverts = () => {
-  //   let newAdverts = fetchAdverts(2, page);
-  //       setAdverts(prev => [prev, ...newAdverts]);
-
-  // }
+  const [isLoading, setLoading] = useState(false);
  
   useEffect(() => {
-        
     const getAdverts = async () => {
-      setLoading(true);
-    let newAdverts = await fetchAdverts(limit, page);
-        setAdverts(prev => [...prev, ...newAdverts]);
-
-    }
+      try {
+        console.log('ddddd');
+         setLoading(true);
+        let newAdverts = await fetchAdverts(limit, page);
+        // if (newAdverts.length === 0) return;
+       
+      setAdverts((prev) => [...prev, ...newAdverts]);
+      } catch (error) {
+        setError(error);
+       
+      } finally {
+        setLoading(false);
+      }
+         };
     getAdverts();
-    setLoading(false);
-    // let newAdverts = await fetchAdverts(limit, page);
-    // console.log(newAdverts);
-    // setAdverts(prev => [prev, ...newAdverts]);
-    // console.log(adverts);
-  }, [page])
-      console.log("adverts", adverts);
-
+    return setError(null);
+     }, [page]);
+ 
   return (
     <>
       <h1>Cataloggggg</h1>
-      <button type='button' onClick={() => setPage(prev => prev + 1)}>Load more</button>
+      {!error && (
+        <> <AdvertsList adverts={adverts} />
+         {adverts.length < totalItems && (
+        <button type="button" onClick={() => setPage((prev) => prev + 1)}>
+          Load more
+        </button>
+      )}
+        </>
+            
+      )}
+    
+     
     </>
   );
 };
