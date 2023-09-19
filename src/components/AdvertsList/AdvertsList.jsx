@@ -1,12 +1,14 @@
+
 import PropTypes from 'prop-types';
 
 import { AdvertsListItem } from "../AdvertsListItem/AdvertsListItem";
+import { ListI } from './AdvertsList.styled';
 
-export const AdvertsList = ({adverts}) => {
-    console.log('AdvertsList', adverts);
+export const AdvertsList = ({adverts, addToFavorite, deleteFavorite}) => {
+  console.log(adverts);
   return (
       <>
-          {adverts.length !== 0 ? (<ul>
+          {adverts.length !== 0 ? (<ListI>
         {adverts.map(
           ({
             id,
@@ -44,10 +46,12 @@ export const AdvertsList = ({adverts}) => {
               engineSize={engineSize}
               fuelConsumption={fuelConsumption}
               functionalities={functionalities}
+              addToFavorite={addToFavorite}
+              deleteFavorite={deleteFavorite}
             />
           )
         )}{" "}
-      </ul>) : (<p>emptyyyyyyyyyyyyyy</p>)}
+      </ListI>) : (<p>emptyyyyyyyyyyyyyy</p>)}
       
     </>
   );
@@ -55,5 +59,7 @@ export const AdvertsList = ({adverts}) => {
 
 AdvertsList.propTypes = {
   adverts: PropTypes.array.isRequired,
+   deleteFavorite: PropTypes.func.isRequired,
+  addToFavorite: PropTypes.func.isRequired,
  
 };

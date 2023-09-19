@@ -10,6 +10,7 @@ const NotFoundPage = lazy(() => import('./pages/NotFound'));
 
 
 function App() {
+  
   return (
     <>
       <Routes>
