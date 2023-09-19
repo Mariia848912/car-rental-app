@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { fetchAdverts } from "../service/mockapi";
 import { KEY, limit, totalItems } from "../utils/constant";
-import { AdvertsList } from "../components/Advertslist/Advertslist";
+import { AdvertsList } from "../components/AdvertsList/AdvertsListT";
 
 const Catalog = () => {
   const [adverts, setAdverts] = useState([]);
