@@ -4,8 +4,20 @@ import { cutCity } from "../../utils/cutCity";
 import { cutCountry } from "../../utils/cutCountry";
 import { changeType } from "../../utils/changeType";
 import { changeRentalConditions } from "../../utils/changeRentalConditions";
-import { changePrice } from "../../utils/changePrice";
 import { changeMileage } from "../../utils/changeMileage";
+import {
+  Button,
+  Img,
+  ImgThumb,
+  InfoList,
+  ItemConditions,
+  Model,
+  Number,
+  Text,
+  Title,
+  TitleSecondInfo,
+  TitleThumb,
+} from "./Modal.styled";
 
 export const Modal = ({ item }) => {
   const {
@@ -28,19 +40,19 @@ export const Modal = ({ item }) => {
   return (
     <>
       {img ? (
-        <div>
-          <img src={img} alt={model} />
-        </div>
+        <ImgThumb>
+          <Img src={img} alt={model} />
+        </ImgThumb>
       ) : (
         <Placeholder />
       )}
-      <div>
-        <h2>
-          {make} <span>{model}</span>, {year}
-        </h2>
-      </div>
+      <TitleThumb>
+        <Title>
+          {make} <Model>{model}</Model>, {year}
+        </Title>
+      </TitleThumb>
 
-      <ul>
+      <InfoList>
         <li>{cutCity(address)}</li>
         <li>{cutCountry(address)}</li>
         <li>Id: {id}</li>
@@ -48,36 +60,36 @@ export const Modal = ({ item }) => {
         <li>Type: {changeType(type)}</li>
         <li>Fuel Consumption: {fuelConsumption}</li>
         <li>Engine Size: {engineSize}</li>
-      </ul>
+      </InfoList>
 
-      <p>{description}</p>
+      <Text>{description}</Text>
       <div>
-        <h3>Accessories and functionalities:</h3>
-        <ul>
+        <TitleSecondInfo>Accessories and functionalities:</TitleSecondInfo>
+        <InfoList>
           {accessories.map((item) => (
             <li key={item}>{item}</li>
           ))}
-        </ul>
-        <ul>
+        </InfoList>
+        <InfoList>
           {functionalities.map((item) => (
             <li key={item}>{item}</li>
           ))}
-        </ul>
+        </InfoList>
       </div>
       <div>
-        <h3>Rental Conditions:</h3>
-        <ul>
+        <TitleSecondInfo>Rental Conditions:</TitleSecondInfo>
+        <InfoList>
           {changeRentalConditions(rentalConditions).map((item) => (
-            <li key={item}>{item}</li>
+            <ItemConditions key={item}>{item}</ItemConditions>
           ))}
-          <li>
-            Mileage: <span>{changeMileage(mileage)}</span>
-          </li>
-          <li>
-            Price: <span>{changePrice(rentalPrice)}</span>{" "}
-          </li>
-        </ul>
-        <a href="tel:+380730000000">Rental car</a>
+          <ItemConditions>
+            Mileage: <Number>{changeMileage(mileage)}</Number>
+          </ItemConditions>
+          <ItemConditions>
+            Price: <Number>{rentalPrice}$</Number>{" "}
+          </ItemConditions>
+        </InfoList>
+        <Button href="tel:+380730000000">Rental car</Button>
       </div>
     </>
   );
@@ -85,4 +97,4 @@ export const Modal = ({ item }) => {
 
 Modal.propTypes = {
   item: PropTypes.object.isRequired,
-  };
+};

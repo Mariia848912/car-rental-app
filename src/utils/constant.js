@@ -1,4 +1,4 @@
-export const limit = 3;
+export const limit = 8;
 
 export const totalItems = 33;
 export const KEY = "favourites";
@@ -27,4 +27,4 @@ export const BRAND = [
   "Land",
 ];
 
-export const PRICE = ["$", "$"];
+export const PRICE = [10, 20, 30, 20, 50, 60, 70, 60, 90, 100, 110, 120, 130];

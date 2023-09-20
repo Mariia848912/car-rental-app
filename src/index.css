@@ -1,13 +1,52 @@
+@import-normalize;
+
+@font-face {
+  font-family: "Manrope-Regular";
+  src: local("Manrope-Regular"),
+    url("./font//Manrope-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Manrope-Medium";
+  src: local("Manrope-Medium"),
+    url("./font/Manrope-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Manrope-SemiBold";
+  src: local("Manrope-SemiBold"),
+    url("./font//Manrope-SemiBold.ttf") format("truetype");
+}
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  }
+  /* colors */
+  --primary-text-color: #121417;
+  --secondary-text-grey-color: #363535;
+  --secondary-text-color: rgba(18, 20, 23, 0.5);
+  --placeholder-color: #121417;
+  --options-color: rgba(18, 20, 23, 0.2);
+  --title-secondary-color: #8a8a89;
+
+  --primary-bt-bg-color: #3470ff;
+  --accent-color: #0b44cd;
+
+  --primary-bg-color: #ffffff;
+  --secondary-bg-secondary: #f7f7fb;
+
+  --border-color: #ececec;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
-  color: #121417;
-  background-color: #FFFFFF;
-line-height: 1.5;
+  padding-top: 86px;
+  color: var(--primary-text-color);
+  background-color: var(--primary-bg-color);
   font-weight: 400;
+  font-family: "Manrope-Regular";
 }
 
 h1,
@@ -42,4 +81,15 @@ img {
 button {
   padding: 0;
   cursor: pointer;
+}
+
+input,
+button,
+select {
+  font: inherit;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }

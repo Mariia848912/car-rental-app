@@ -6,7 +6,7 @@ import { ListI } from "./AdvertsList.styled";
 export const AdvertsList = ({ items }) => {
   return (
     <>
-      {items.length !== 0 ? (
+      {items.length !== 0 && (
         <ListI>
           {items.map(
             ({
@@ -47,10 +47,8 @@ export const AdvertsList = ({ items }) => {
                 functionalities={functionalities}
               />
             )
-          )}{" "}
+          )}
         </ListI>
-      ) : (
-        <p>emptyyyyyyyyyyyyyy</p>
       )}
     </>
   );

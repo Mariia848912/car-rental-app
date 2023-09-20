@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Backdrop = styled.div`
   position: fixed;
@@ -8,43 +8,33 @@ export const Backdrop = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(97, 97, 97, 0.2);
+  background-color: var(--secondary-text-color);
   backdrop-filter: blur(1.2px);
-  
 `;
 
 export const Content = styled.div`
- position: absolute;
+  position: absolute;
   z-index: 100;
   top: 50%;
   left: 50%;
+  max-width: 541px;
   transform: translate(-50%, -50%);
-  max-width: 280px;
-  width: 100%;
-  padding: 12px;
+
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 36px;
+  padding-right: 36px;
   border-radius: 20px;
   background-color: #ffffff;
-  overflow: scroll;
-  @media screen and (min-width: 768px) {
-    max-width: 681px;
-    padding: 32px;
-    padding-bottom: 24px;
-    overflow: hidden;
-  }
-  
+  overflow: hidden;
 `;
 
-export const CloseBtn  = styled.button`
- position: absolute;
-  top: 12px;
-  right: 12px;
+export const CloseBtn = styled.button`
+  position: absolute;
+  top: 16px;
+  right: 16px;
   border: none;
-  background-color: inherit;
+  background-color: transparent;
   width: 24px;
   height: 24px;
-  @media screen and (min-width: 768px) {
-    top: 24px;
-    right: 24px;
-  }
-  
 `;
