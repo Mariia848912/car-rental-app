@@ -1,11 +1,13 @@
 import PropTypes from "prop-types";
+import { useField } from "formik";
 
-export const Select = ({ label, title, constant, name }) => {
-  return (
+export const Select = ({ label, title, constant, ...props }) => {
+    const [field] = useField(props);
+    return (
     <>
           <label>
               <span>{label}</span>
-      <select name={name}>
+                <select {...field} {...props}>
         <option value="" disabled selected hidden>
           {title}
                   </option>

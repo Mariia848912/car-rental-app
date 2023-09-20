@@ -50,7 +50,6 @@ export const AdvertsListItem = ({
     fuelConsumption,
     functionalities,
   };
-  console.log(advert);
   return (
     <Item>
       {img ? (
