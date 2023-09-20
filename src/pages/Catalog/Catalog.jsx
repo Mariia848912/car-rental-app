@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { fetchAdverts, gethAdvertsByQuery } from "../service/mockapi";
-import { limit, totalItems } from "../utils/constant";
-import { AdvertsList } from "../components/AdvertsList/AdvertsListT";
-import { Filters } from "../components/Filters/Filters";
+import { fetchAdverts, gethAdvertsByQuery } from "../../service/mockapi";
+import { limit, totalItems } from "../../utils/constant";
+import { AdvertsList } from "../../components/AdvertsList/AdvertsListT";
+import { Filters } from "../../components/Filters/Filters";
 
 const Catalog = () => {
   const [adverts, setAdverts] = useState([]);

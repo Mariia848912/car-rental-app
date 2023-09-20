@@ -1,6 +1,6 @@
 
-import { AdvertsList } from "../components/AdvertsList/AdvertsListT";
-import { useFavorite } from "../hooks/contectHooks";
+import { AdvertsList } from "../../components/AdvertsList/AdvertsListT";
+import { useFavorite } from "../../hooks/contectHooks";
 
 
 const Favorites = () => {

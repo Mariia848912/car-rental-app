@@ -1,15 +1,19 @@
 import { Navigation } from "../Navigation/Navigation";
 import { PiCarFill } from "react-icons/pi";
-
+import { Box, Header, IconThumb } from "./AppBar.styled";
+import { Container } from "../Container/Container";
 export const AppBar = () => {
 
   return (
-    <header>
-      <p>Loooogo</p>
-      <div>
+    <Header>
+      <Container>
+        <Box>
+          <IconThumb>
         <PiCarFill />
-      </div>
-      <Navigation />
-    </header>
+      </IconThumb>
+          <Navigation />
+          </Box>
+        </Container>
+    </Header>
   );
 };
