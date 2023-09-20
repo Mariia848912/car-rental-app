@@ -24,7 +24,6 @@ const Catalog = () => {
           setAdverts(newAdverts);
         } else {
           newAdverts = await fetchAdverts(limit, page);
-          // if (newAdverts.length === 0) return;
           setAdverts((prev) => [...prev, ...newAdverts]);
         }
       } catch (error) {

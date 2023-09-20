@@ -4,7 +4,7 @@ import { Label, SelectStyle, Title } from "./Select.styled";
 
 export const Select = ({ label, title, constant, ...props }) => {
   const [field] = useField(props);
-  console.log(field.name);
+
   return (
     <>
       <Label>
