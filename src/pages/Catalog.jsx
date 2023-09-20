@@ -10,7 +10,6 @@ const Catalog = () => {
   const [page, setPage] = useState(1);
   const [error, setError] = useState(null);
   const [isLoading, setLoading] = useState(false);
-console.log('adverts.length', adverts.length);
   useEffect(() => {
     const getAdverts = async () => {
       try {

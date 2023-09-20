@@ -8,7 +8,7 @@ export const Select = ({ label, title, constant, ...props }) => {
           <label>
               <span>{label}</span>
                 <select {...field} {...props}>
-        <option value="" disabled selected hidden>
+        <option value="" disabled  hidden>
           {title}
                   </option>
                   {constant.map((value) => (

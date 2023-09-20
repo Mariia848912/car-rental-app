@@ -50,6 +50,7 @@ export const AdvertsListItem = ({
     fuelConsumption,
     functionalities,
   };
+  console.log(rentalPrice);
   return (
     <Item>
       {img ? (
@@ -64,7 +65,7 @@ export const AdvertsListItem = ({
         <h2>
           {make} <span>{model}</span>, {year}
         </h2>
-        <p>{rentalPrice}</p>
+        <p>${rentalPrice}</p>
       </div>
       <ul>
         <li>{cutCity(address)}</li>
@@ -96,7 +97,7 @@ AdvertsListItem.propTypes = {
   make: PropTypes.string.isRequired,
   model: PropTypes.string.isRequired,
   rentalCompany: PropTypes.string.isRequired,
-  rentalPrice: PropTypes.string.isRequired,
+  rentalPrice: PropTypes.number.isRequired,
   type: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
   accessories: PropTypes.array.isRequired,

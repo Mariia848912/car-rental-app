@@ -4,7 +4,6 @@ import { cutCity } from "../../utils/cutCity";
 import { cutCountry } from "../../utils/cutCountry";
 import { changeType } from "../../utils/changeType";
 import { changeRentalConditions } from "../../utils/changeRentalConditions";
-import { changePrice } from "../../utils/changePrice";
 import { changeMileage } from "../../utils/changeMileage";
 
 export const Modal = ({ item }) => {
@@ -74,7 +73,7 @@ export const Modal = ({ item }) => {
             Mileage: <span>{changeMileage(mileage)}</span>
           </li>
           <li>
-            Price: <span>{changePrice(rentalPrice)}</span>{" "}
+            Price: <span>{rentalPrice}$</span>{" "}
           </li>
         </ul>
         <a href="tel:+380730000000">Rental car</a>
