@@ -3,14 +3,11 @@ import PropTypes from "prop-types";
 import { BRAND, PRICE } from "../../utils/constant";
 import { Select } from "./Select/Select";
 import { Input } from "./Input/Input";
-// import { changeMileage } from "../../utils/changeMileage";
 import { Box, Button, InputBox, Title } from "./Filters.styled";
 
 export const Filters = ({ getQuery }) => {
   const handleSubmit = async (values) => {
     const brandQuery = `make=${values.brand}`;
-    console.log("query", brandQuery);
-    console.log(values);
     getQuery(brandQuery);
   };
 
