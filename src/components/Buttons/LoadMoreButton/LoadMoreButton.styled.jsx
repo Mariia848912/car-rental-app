@@ -18,4 +18,5 @@ export const Button = styled.button`
 `;
 export const ButtonThumb = styled.div`
   text-align: center;
+  margin-bottom: 50px;
 `;
