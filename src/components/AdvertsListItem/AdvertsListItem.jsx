@@ -63,7 +63,7 @@ export const AdvertsListItem = ({
     fuelConsumption,
     functionalities,
   };
-  console.log(rentalPrice);
+
   return (
     <Item>
       {img ? (
