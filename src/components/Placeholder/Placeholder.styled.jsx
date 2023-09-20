@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 
 export const Img = styled.img`
-   margin-bottom: 12px;
-   border: 1px solid #AFB1B8;
+height: 268px;
+border-radius: 12px;
+ width: 100%;
+ margin-bottom: 14px;
 `

@@ -1,24 +1,32 @@
 import PropTypes from "prop-types";
 import { useField } from "formik";
 import { changeMileage } from "../../../utils/changeMileage";
+import { InputField, Label, Text } from "./Input.styled";
 
 export const Input = ({ title, ...props }) => {
-  const [field, meta, helpers] = useField(props);
-    // console.log('field',field);
-    // console.log('meta',meta);
-    // console.log('helpers',helpers);
+  const [field, helpers] = useField(props);
+  const styleMileageFrom = {
+    borderRadius: "14px 0px 0px 14px",
+    borderRight: "1px solid rgba(138, 138, 137, 0.20)",
+  };
+  const stylemileageTo = {
+    borderRadius: "0px 14px 14px 0px",
+  };
 
-    const test = (e) => {
-        let changeValue = changeMileage(e.target.value)
-        console.log(changeValue);
-        helpers.setValue(changeValue);
-       console.log(e.target.value);
-   }
+  const test = (e) => {
+    let changeValue = changeMileage(e.target.value);
+    helpers.setValue(changeValue);
+  };
   return (
-    <label >
-      <span>{title}</span>
-          <input {...field} {...props} onChange={test} />
-         </label>
+    <Label>
+      <InputField
+        {...field}
+        {...props}
+        onChange={test}
+        style={field.name === "mileageFrom" ? styleMileageFrom : stylemileageTo}
+      />
+      <Text>{title}</Text>
+    </Label>
   );
 };
 

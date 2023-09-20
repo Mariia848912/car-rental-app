@@ -4,13 +4,26 @@ import { Placeholder } from "../Placeholder/Placeholder";
 import { cutCity } from "../../utils/cutCity";
 import { cutCountry } from "../../utils/cutCountry";
 import { changeType } from "../../utils/changeType";
-import { Item } from "./AdvertsListItem.styled";
+import {
+  ButtonHeart,
+  Img,
+  ImgThumb,
+  InfoList,
+  InfoListItem,
+  Item,
+  Model,
+  Price,
+  Title,
+  TitleThumb,
+} from "./AdvertsListItem.styled";
 import { ActiveHeart, Heart } from "../../utils/icons";
 import { useFavorite } from "../../hooks/contectHooks";
 import { LeanButton } from "../Buttons/LeanButton/LeanButton";
 import { Modal } from "../Modal/Modal";
 import { useToggle } from "../../hooks/useToggle";
 import { ModalContainer } from "../ModalContainer/ModalContainer";
+import { changeAccessories } from "../../utils/changeAccessories";
+
 export const AdvertsListItem = ({
   id,
   img,
@@ -54,37 +67,37 @@ export const AdvertsListItem = ({
   return (
     <Item>
       {img ? (
-        <div>
-          <img src={img} alt={model} />
-        </div>
+        <ImgThumb>
+          <Img src={img} alt={model} />
+        </ImgThumb>
       ) : (
         <Placeholder />
       )}
 
-      <div>
-        <h2>
-          {make} <span>{model}</span>, {year}
-        </h2>
-        <p>${rentalPrice}</p>
-      </div>
-      <ul>
-        <li>{cutCity(address)}</li>
-        <li>{cutCountry(address)}</li>
-        <li>{rentalCompany}</li>
-        <li>{changeType(type)}</li>
-        <li>{model}</li>
-        <li>{id}</li>
-        <li>{accessories[2]}</li>
-      </ul>
+      <TitleThumb>
+        <Title>
+          {make} <Model>{model}</Model>, {year}
+        </Title>
+        <Price>${rentalPrice}</Price>
+      </TitleThumb>
+      <InfoList>
+        <InfoListItem>{cutCity(address)}</InfoListItem>
+        <InfoListItem>{cutCountry(address)}</InfoListItem>
+        <InfoListItem>{rentalCompany}</InfoListItem>
+        <InfoListItem>{changeType(type)}</InfoListItem>
+        <InfoListItem>{model}</InfoListItem>
+        <InfoListItem>{id}</InfoListItem>
+        <InfoListItem>{changeAccessories(accessories[2])}</InfoListItem>
+      </InfoList>
 
-      <button type="button" onClick={() => toggleFavorite(advert)}>
+      <ButtonHeart type="button" onClick={() => toggleFavorite(advert)}>
         {checkFavorite ? <ActiveHeart /> : <Heart />}
-      </button>
+      </ButtonHeart>
       <LeanButton openModel={open} />
 
       {isOpen && (
         <ModalContainer toggle={toggle}>
-                  <Modal  item={advert} />
+          <Modal item={advert} />
         </ModalContainer>
       )}
     </Item>

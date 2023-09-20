@@ -1,10 +1,9 @@
-import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const NavList = styled.nav`
-display: flex;
-margin-left: 30px;
-  
+  display: flex;
+  margin-left: 30px;
 `;
 
 export const Link = styled(NavLink)`
@@ -13,9 +12,9 @@ export const Link = styled(NavLink)`
   text-decoration: none;
   font-weight: 500;
   color: #000;
-font-weight: 500;
-font-size: 16px;
-line-height: 1.5;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
   &.active {
     color: var(--accent-color);
   }
@@ -24,7 +23,6 @@ line-height: 1.5;
     text-decoration: underline;
   }
   &:not(:last-child) {
-      margin-right: 10px;
-    }
- 
+    margin-right: 10px;
+  }
 `;

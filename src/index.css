@@ -1,40 +1,39 @@
 @import-normalize;
 
 @font-face {
-  font-family: 'Manrope-Regular';
-  src: local('Manrope-Regular'),
-    url('./font//Manrope-Regular.ttf') format('truetype');
+  font-family: "Manrope-Regular";
+  src: local("Manrope-Regular"),
+    url("./font//Manrope-Regular.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Manrope-Medium';
-  src: local('Manrope-Medium'),
-    url('./font/Manrope-Medium.ttf') format('truetype');
+  font-family: "Manrope-Medium";
+  src: local("Manrope-Medium"),
+    url("./font/Manrope-Medium.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Manrope-SemiBold';
-  src: local('Manrope-SemiBold'),
-    url('./font//Manrope-SemiBold.ttf') format('truetype');
+  font-family: "Manrope-SemiBold";
+  src: local("Manrope-SemiBold"),
+    url("./font//Manrope-SemiBold.ttf") format("truetype");
 }
 :root {
-    /* colors */
-    --primary-text-color: #121417;
-    --secondary-text-grey-color: #363535;
-    --secondary-text-color: rgba(18, 20, 23, 0.50);
-    --placeholder-color: #121417;
-    --options-color: rgba(18, 20, 23, 0.20);
-    --title-secondary-color: #8A8A89;
-    
-    --primary-bt-bg-color: #3470FF;
-    --accent-color: #0B44CD;
-   
-    --primary-bg-color: #FFFFFF;
-    --secondary-bg-secondary: #F7F7FB;
-    
-    --border-color: #ececec;
+  /* colors */
+  --primary-text-color: #121417;
+  --secondary-text-grey-color: #363535;
+  --secondary-text-color: rgba(18, 20, 23, 0.5);
+  --placeholder-color: #121417;
+  --options-color: rgba(18, 20, 23, 0.2);
+  --title-secondary-color: #8a8a89;
 
-  }
+  --primary-bt-bg-color: #3470ff;
+  --accent-color: #0b44cd;
+
+  --primary-bg-color: #ffffff;
+  --secondary-bg-secondary: #f7f7fb;
+
+  --border-color: #ececec;
+}
 *,
 *::before,
 *::after {
@@ -47,7 +46,7 @@ body {
   color: var(--primary-text-color);
   background-color: var(--primary-bg-color);
   font-weight: 400;
-  font-family: 'Manrope-Regular';
+  font-family: "Manrope-Regular";
 }
 
 h1,
@@ -91,6 +90,6 @@ select {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

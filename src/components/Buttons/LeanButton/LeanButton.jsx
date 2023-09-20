@@ -1,11 +1,13 @@
 import PropTypes from "prop-types";
+import { Button } from "./LeanButton.styled";
 
 export const LeanButton = ({ openModel }) => {
-
-    return (
-        <button type='button' onClick={openModel}>Learn more</button>
-    )
-}
+  return (
+    <Button type="button" onClick={openModel}>
+      Learn more
+    </Button>
+  );
+};
 
 LeanButton.propTypes = {
   openModel: PropTypes.func.isRequired,

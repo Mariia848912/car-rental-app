@@ -1,8 +1,10 @@
 import { Form, Formik } from "formik";
-import { BRAND } from "../../utils/constant";
+import PropTypes from "prop-types";
+import { BRAND, PRICE } from "../../utils/constant";
 import { Select } from "./Select/Select";
 import { Input } from "./Input/Input";
-import { changeMileage } from "../../utils/changeMileage";
+// import { changeMileage } from "../../utils/changeMileage";
+import { Box, Button, InputBox, Title } from "./Filters.styled";
 
 export const Filters = ({ getQuery }) => {
   const handleSubmit = async (values) => {
@@ -17,17 +19,16 @@ export const Filters = ({ getQuery }) => {
       <Formik
         initialValues={{
           brand: "",
-          prise: "",
+          priсe: "",
           mileageFrom: "",
           mileageTo: "",
         }}
         onSubmit={handleSubmit}
       >
-              {() => {
-               
+        {() => {
           return (
             <Form>
-              <div>
+              <Box>
                 <Select
                   label="Car brand"
                   title="Enter the text"
@@ -37,19 +38,22 @@ export const Filters = ({ getQuery }) => {
                 <Select
                   label="Price/ 1 hour"
                   title="To $"
-                  constant={BRAND}
-                          name="prise"
-                      
+                  constant={PRICE}
+                  name="price"
                 />
-                <Input
-                  type="number"
-                  name="mileageFrom"
-                  title="From"
-                  
-                />
-                <Input type="number" name="mileageTo" title="To"     />
-                <button type="submit"> Search</button>
-              </div>
+                <div>
+                  <Title>Сar mileage / km</Title>
+
+                  <InputBox>
+                    <Input type="number" name="mileageFrom" title="From" />
+                    <Input type="number" name="mileageTo" title="To" />
+                  </InputBox>
+                </div>
+                <div>
+                  {" "}
+                  <Button type="submit">Search</Button>
+                </div>
+              </Box>
             </Form>
           );
         }}
@@ -58,8 +62,6 @@ export const Filters = ({ getQuery }) => {
   );
 };
 
-// onChange={() => {
-                //     setFieldValue("mileageFrom", changeMileage(values.mileageFrom));
-//   }}
-                
-//  value={() => setFieldValue(changeMileage(values.mileageTo))}
+Filters.propTypes = {
+  getQuery: PropTypes.func.isRequired,
+};
