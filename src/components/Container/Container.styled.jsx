@@ -5,7 +5,6 @@ export const Box = styled.div`
   margin-left: auto;
   padding: 0 16px;
   padding-bottom: 16px;
-
   text-align: center;
 
   @media screen and (min-width: 452px) {

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchAdverts } from "../service/mockapi";
 import { limit, totalItems } from "../utils/constant";
 import { AdvertsList } from "../components/AdvertsList/AdvertsListT";
+import { Filters } from "../components/Filters/Filters";
 
 const Catalog = () => {
   const [adverts, setAdverts] = useState([]);
@@ -29,7 +30,7 @@ const Catalog = () => {
 
   return (
     <>
-      <h1>Cataloggggg</h1>
+   <Filters />
       {!error && (
         <>
           <AdvertsList items={adverts} />

@@ -7,8 +7,11 @@ import { changeType } from "../../utils/changeType";
 import { Item } from "./AdvertsListItem.styled";
 import { ActiveHeart, Heart } from "../../utils/icons";
 import { useFavorite } from "../../hooks/contectHooks";
+import { LeanButton } from "../Buttons/LeanButton/LeanButton";
+import { Modal } from "../Modal/Modal";
+import { useToggle } from "../../hooks/useToggle";
+import { ModalContainer } from "../ModalContainer/ModalContainer";
 export const AdvertsListItem = ({
- 
   id,
   img,
   make,
@@ -26,8 +29,28 @@ export const AdvertsListItem = ({
   fuelConsumption,
   functionalities,
 }) => {
-const {favorites, toggleFavorite} = useFavorite()
-const checkFavorite = favorites.some(item => item.id === id)
+  const { favorites, toggleFavorite } = useFavorite(false);
+  const checkFavorite = favorites.some((item) => item.id === id);
+  const { isOpen, open, toggle } = useToggle();
+  const advert = {
+    id,
+    img,
+    make,
+    model,
+    mileage,
+    rentalCompany,
+    rentalConditions,
+    rentalPrice,
+    type,
+    year,
+    accessories,
+    address,
+    description,
+    engineSize,
+    fuelConsumption,
+    functionalities,
+  };
+  console.log(advert);
   return (
     <Item>
       {img ? (
@@ -53,26 +76,17 @@ const checkFavorite = favorites.some(item => item.id === id)
         <li>{id}</li>
         <li>{accessories[2]}</li>
       </ul>
-     
-       <button type="button" onClick={()=>toggleFavorite({ id,
-  img,
-  make,
-  model,
-  mileage,
-  rentalCompany,
-  rentalConditions,
-  rentalPrice,
-  type,
-  year,
-  accessories,
-  address,
-  description,
-  engineSize,
-  fuelConsumption,
-  functionalities,})}>
-        {checkFavorite ? <ActiveHeart /> : <Heart />  }
+
+      <button type="button" onClick={() => toggleFavorite(advert)}>
+        {checkFavorite ? <ActiveHeart /> : <Heart />}
       </button>
-              
+      <LeanButton openModel={open} />
+
+      {isOpen && (
+        <ModalContainer toggle={toggle}>
+                  <Modal  item={advert} />
+        </ModalContainer>
+      )}
     </Item>
   );
 };
@@ -94,5 +108,4 @@ AdvertsListItem.propTypes = {
   engineSize: PropTypes.string.isRequired,
   fuelConsumption: PropTypes.string.isRequired,
   functionalities: PropTypes.array.isRequired,
-
 };
