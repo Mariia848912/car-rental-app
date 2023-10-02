@@ -56,4 +56,10 @@ export const InfoList = styled.ul`
 
 export const InfoListItem = styled.li`
   font-size: 12px;
+&:not(:last-child)  { 
+  padding-right: 6px;
+border-right: 1px solid rgba(18, 20, 23, 0.10);}
+ 
 `;
+
+
