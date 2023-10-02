@@ -26,10 +26,16 @@ export const TitleThumb = styled.div`
 export const InfoList = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-
+  gap: 4px 6px;
   color: var(--secondary-text-color);
   font-size: 12px;
+`;
+
+export const InfoListItem = styled.li`
+  &:not(:last-child) {
+    padding-right: 6px;
+    border-right: 1px solid rgba(18, 20, 23, 0.1);
+  }
 `;
 
 export const Text = styled.p`
@@ -60,12 +66,10 @@ export const Button = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 274px;
+  width: 168px;
   padding-top: 12px;
   padding-bottom: 12px;
   margin-top: 24px;
-  margin-left: auto;
-  margin-right: auto;
   border-radius: 12px;
   background-color: var(--primary-bt-bg-color);
   color: var(--primary-bg-color);

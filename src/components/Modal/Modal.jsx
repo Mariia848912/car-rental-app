@@ -5,11 +5,13 @@ import { cutCountry } from "../../utils/cutCountry";
 import { changeType } from "../../utils/changeType";
 import { changeRentalConditions } from "../../utils/changeRentalConditions";
 import { changeMileage } from "../../utils/changeMileage";
+import { stringToArray } from "../../utils/stringToArray";
 import {
   Button,
   Img,
   ImgThumb,
   InfoList,
+  InfoListItem,
   ItemConditions,
   Model,
   Number,
@@ -37,6 +39,7 @@ export const Modal = ({ item }) => {
     fuelConsumption,
     functionalities,
   } = item;
+  console.log(rentalConditions);
   return (
     <>
       {img ? (
@@ -52,36 +55,47 @@ export const Modal = ({ item }) => {
         </Title>
       </TitleThumb>
 
+      <InfoList style={{ marginBottom: 4 }}>
+        <InfoListItem>{cutCity(address)}</InfoListItem>
+        <InfoListItem>{cutCountry(address)}</InfoListItem>
+        <InfoListItem>Id: {id}</InfoListItem>
+        <InfoListItem>Year: {year}</InfoListItem>
+        <InfoListItem>Type: {changeType(type)}</InfoListItem>
+      </InfoList>
       <InfoList>
-        <li>{cutCity(address)}</li>
-        <li>{cutCountry(address)}</li>
-        <li>Id: {id}</li>
-        <li>Year: {year}</li>
-        <li>Type: {changeType(type)}</li>
-        <li>Fuel Consumption: {fuelConsumption}</li>
-        <li>Engine Size: {engineSize}</li>
+        <InfoListItem>Fuel Consumption: {fuelConsumption}</InfoListItem>
+        <InfoListItem>Engine Size: {engineSize}</InfoListItem>
       </InfoList>
 
       <Text>{description}</Text>
       <div>
         <TitleSecondInfo>Accessories and functionalities:</TitleSecondInfo>
-        <InfoList>
+        <InfoList style={{ marginBottom: 4 }}>
           {accessories.map((item) => (
-            <li key={item}>{item}</li>
+            <InfoListItem key={item}>{item}</InfoListItem>
           ))}
         </InfoList>
         <InfoList>
           {functionalities.map((item) => (
-            <li key={item}>{item}</li>
+            <InfoListItem key={item}>{item}</InfoListItem>
           ))}
         </InfoList>
       </div>
       <div>
         <TitleSecondInfo>Rental Conditions:</TitleSecondInfo>
-        <InfoList>
-          {changeRentalConditions(rentalConditions).map((item) => (
-            <ItemConditions key={item}>{item}</ItemConditions>
-          ))}
+        <InfoList style={{ gap: 8 }}>
+          {changeRentalConditions(rentalConditions).map((item) => {
+            if (item.includes(":")) {
+              const array = stringToArray(item, ":");
+
+              return (
+                <ItemConditions key={item}>
+                  {array[0]}: <Number>{array[1]}</Number>
+                </ItemConditions>
+              );
+            }
+            return <ItemConditions key={item}>{item}</ItemConditions>;
+          })}
           <ItemConditions>
             Mileage: <Number>{changeMileage(mileage)}</Number>
           </ItemConditions>
