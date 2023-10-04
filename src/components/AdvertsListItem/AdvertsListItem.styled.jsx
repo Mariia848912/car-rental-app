@@ -1,8 +1,16 @@
 import styled from "styled-components";
 
 export const Item = styled.li`
-  width: 272px;
   position: relative;
+  /* width: 274px; */
+ /* flex-basis: calc((100% - 58px) / 3); */
+ flex-basis: calc((100% - 87px) / 4);
+
+   /* @media screen and (min-width: 1200px) {
+ flex-basis: calc((100% - 87px) / 4);
+
+  } */
+
 `;
 export const Img = styled.img`
   height: 268px;
@@ -51,6 +59,8 @@ export const InfoList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  height: 40px;
+ overflow: hidden;
   color: var(--secondary-text-color);
 `;
 
