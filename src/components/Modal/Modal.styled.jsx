@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const Img = styled.img`
-  height: 314px;
+  max-height: 240px;
   object-fit: cover;
   border-radius: 12px;
+  width: 100%;
 `;
 export const ImgThumb = styled.div`
   margin-bottom: 12px;

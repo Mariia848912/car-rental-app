@@ -17,16 +17,14 @@ export const Content = styled.div`
   z-index: 100;
   top: 50%;
   left: 50%;
-  max-width: 541px;
+  width: 541px;
   transform: translate(-50%, -50%);
 
-  padding-top: 40px;
-  padding-bottom: 40px;
-  padding-left: 36px;
-  padding-right: 36px;
+  padding: 40px;
+
   border-radius: 20px;
   background-color: #ffffff;
-  overflow: hidden;
+  /* overflow: hidden; */
 `;
 
 export const CloseBtn = styled.button`

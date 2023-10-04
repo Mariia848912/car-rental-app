@@ -39,7 +39,6 @@ export const Modal = ({ item }) => {
     fuelConsumption,
     functionalities,
   } = item;
-  console.log(rentalConditions);
   return (
     <>
       {img ? (

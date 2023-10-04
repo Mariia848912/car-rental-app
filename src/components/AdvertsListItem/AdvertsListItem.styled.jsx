@@ -2,15 +2,11 @@ import styled from "styled-components";
 
 export const Item = styled.li`
   position: relative;
-  /* width: 274px; */
- /* flex-basis: calc((100% - 58px) / 3); */
- flex-basis: calc((100% - 87px) / 4);
-
-   /* @media screen and (min-width: 1200px) {
- flex-basis: calc((100% - 87px) / 4);
-
-  } */
-
+   flex-basis: calc((100% - 58px) / 3);
+  @media screen and (min-width: 1216px) {
+    flex-basis: calc((100% - 87px) / 4);
+  }
+ 
 `;
 export const Img = styled.img`
   height: 268px;
@@ -60,17 +56,15 @@ export const InfoList = styled.ul`
   flex-wrap: wrap;
   gap: 6px;
   height: 40px;
- overflow: hidden;
+  overflow: hidden;
   color: var(--secondary-text-color);
 `;
 
 export const InfoListItem = styled.li`
   font-size: 12px;
- 
-&:not(:last-child)  { 
-  padding-right: 6px;
-border-right: 1px solid rgba(18, 20, 23, 0.10);}
- 
+
+  &:not(:last-child) {
+    padding-right: 6px;
+    border-right: 1px solid rgba(18, 20, 23, 0.1);
+  }
 `;
-
-
