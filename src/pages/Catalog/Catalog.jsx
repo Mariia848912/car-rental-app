@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { fetchAdverts, gethAdvertsByQuery } from "../../service/mockapi";
-import { limit, totalItems } from "../../utils/constant";
+import { BRAND, PRICE, limit, totalItems } from "../../utils/constant";
 import { AdvertsList } from "../../components/AdvertsList/AdvertsListT";
 import { Filters } from "../../components/Filters/Filters";
 import Loader from "../../components/Loader/Loader";
 import { ErrorText } from "../../components/ErrorText/ErrorText";
 import { LoadMoreButton } from "../../components/Buttons/LoadMoreButton/LoadMoreButton";
+import { CustomFilter } from "../../components/Filters/CustomFilter/CustomFilter";
 
 const Catalog = () => {
   const [adverts, setAdverts] = useState([]);
@@ -45,7 +46,8 @@ const Catalog = () => {
   };
   return (
     <>
-      <Filters getQuery={getQuery} />
+ <CustomFilter getQuery={getQuery}  />
+      {/* <Filters getQuery={getQuery} /> */}
 
       {isLoading && <Loader />}
       {!error ? (
