@@ -7,16 +7,17 @@ export const Wrapper = styled.div`
 export const Select = styled.div`
   display: flex;
   padding: 14px 14px 14px 18px;
-  margin-bottom: 4px;
   justify-content: center;
   width: 100%;
   align-items: center;
   border-radius: 14px;
   background: var(--secondary-bg-secondary);
+  
+  font-family: "Manrope-Medium";
+  font-weight: 500;
   font-size: 18px;
   line-height: 1.11;
-
-  cursor: pointer;
+    cursor: pointer;
 `;
 export const Label = styled.p`
   margin-bottom: 8px;
@@ -43,8 +44,19 @@ export const DropDown = styled.div`
   background: var(--primary-bg-color);
   box-shadow: 0px 4px 36px 0px rgba(0, 0, 0, 0.02);
 
-  overflow: scroll;
+  overflow-y: scroll;
 
   font-family: "Manrope-Medium";
   font-weight: 500;
+  color: var(--options-color);
+
+ 
+`;
+
+export const Item = styled.div`
+ 
+  cursor: pointer;
+  &:hover {
+    color: var(--primary-text-color);
+  }
 `;

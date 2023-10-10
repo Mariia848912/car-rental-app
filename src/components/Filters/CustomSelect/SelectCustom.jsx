@@ -1,29 +1,27 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
-import { DropDown, Label, Select, Wrapper } from "./SelectCustom.styled";
+import {  useState } from "react";
+import { DropDown, Item, Label, Select, Wrapper } from "./SelectCustom.styled";
 import { ArrowButton } from "../../Buttons/ArrowButton/ArrowButton";
 
-export const SelectCustom = ({ list, label }) => {
-  const initialValue = label === "Car brand" ? "Enter the text" : "To $";
-  const [value, setvalue] = useState(initialValue);
+export const SelectCustom = ({ list, label, value, textFirstPart, textSecondPart, getValue, wrapperStyle }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const getValue = (string) => {
-    setvalue(string);
+  const handleClick = (string) => {
+    getValue(string);
     setIsOpen((prev) => !prev);
-  };
+    };
   return (
-    <Wrapper>
+      <Wrapper style={wrapperStyle}>
       <Label>{label}</Label>
-      <Select onClick={() => setIsOpen((prev) => !prev)}>
-        {value} <ArrowButton isOpen={isOpen} />
+      <Select onClick={() => setIsOpen((prev) => !prev)} >
+              {textFirstPart} {value}{textSecondPart} <ArrowButton isOpen={isOpen}  />
       </Select>
       {isOpen && (
-        <DropDown>
+        <DropDown style={{marginTop: '4px'}}>
           {list.map((item) => {
             return (
-              <div key={item} onClick={() => getValue(item)}>
+              <Item key={item} onClick={() => handleClick(item)}>
                 {item}
-              </div>
+              </Item>
             );
           })}
         </DropDown>
@@ -34,5 +32,14 @@ export const SelectCustom = ({ list, label }) => {
 
 SelectCustom.propTypes = {
   list: PropTypes.array.isRequired,
-  label: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+    ]),
+    textFirstPart: PropTypes.string,
+    textSecondPart: PropTypes.string,
+    getValue: PropTypes.func.isRequired,
+    wrapperStyle:PropTypes.object,
+  
 };

@@ -36,7 +36,6 @@ const Catalog = () => {
     getAdverts();
     return setError(null);
   }, [page, query]);
-
   const getQuery = (query) => {
     setQuery(query);
     setPage(1);

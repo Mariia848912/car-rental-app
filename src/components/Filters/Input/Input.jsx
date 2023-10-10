@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useField } from "formik";
-import { changeMileage } from "../../../utils/changeMileage";
+import { addComma } from "../../../utils/addComma";
 import { InputField, Label, Text } from "./Input.styled";
 
 export const Input = ({ title, ...props }) => {
@@ -14,7 +14,7 @@ export const Input = ({ title, ...props }) => {
   };
 
   const test = (e) => {
-    let changeValue = changeMileage(e.target.value);
+    let changeValue = addComma(e.target.value);
     helpers.setValue(changeValue);
   };
   return (

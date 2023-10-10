@@ -7,3 +7,10 @@ export const Box = styled.div`
   align-items: flex-end;
   margin-bottom: 50px;
 `;
+
+
+export const InputBox = styled.div`
+  display: flex;
+  align-items: flex-end;
+ 
+`;

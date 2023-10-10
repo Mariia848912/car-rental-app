@@ -4,7 +4,7 @@ import { cutCity } from "../../utils/cutCity";
 import { cutCountry } from "../../utils/cutCountry";
 import { changeType } from "../../utils/changeType";
 import { changeRentalConditions } from "../../utils/changeRentalConditions";
-import { changeMileage } from "../../utils/changeMileage";
+import { addComma } from "../../utils/addComma";
 import { stringToArray } from "../../utils/stringToArray";
 import {
   Button,
@@ -96,7 +96,7 @@ export const Modal = ({ item }) => {
             return <ItemConditions key={item}>{item}</ItemConditions>;
           })}
           <ItemConditions>
-            Mileage: <Number>{changeMileage(mileage)}</Number>
+            Mileage: <Number>{addComma(mileage)}</Number>
           </ItemConditions>
           <ItemConditions>
             Price: <Number>{rentalPrice}$</Number>{" "}

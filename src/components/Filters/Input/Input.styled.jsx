@@ -5,6 +5,7 @@ export const Label = styled.label`
   display: flex;
   flex-direction: column;
   gap: 8px;
+
 `;
 
 export const Title = styled.span`
