@@ -1,7 +1,7 @@
 # Rental cat  ![alt-текст](https://github.com/Mariia848912/car-rental-app/blob/main/car.svg "Текст заголовка логотипа 1")
 Додаток надає можливість швидко та зручно обрати машину для оренди.
 
-![plot](./img/catalog.PNG)
+![plot](./catalog.PNG)
 
 ## Опис
 Додаток складається з трьох сторінок
