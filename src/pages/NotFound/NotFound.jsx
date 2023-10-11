@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-import { Container } from '../../components/Container/Container';
+import { Container } from '../../components/Common/Container/Container';
 import { Text } from './NotFound.styled';
 
 export const NotFound = () => {
