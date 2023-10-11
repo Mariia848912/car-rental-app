@@ -10,14 +10,15 @@ export const Select = styled.div`
   justify-content: center;
   width: 100%;
   align-items: center;
+  
   border-radius: 14px;
   background: var(--secondary-bg-secondary);
-  
+
   font-family: "Manrope-Medium";
   font-weight: 500;
   font-size: 18px;
   line-height: 1.11;
-    cursor: pointer;
+  cursor: pointer;
 `;
 export const Label = styled.p`
   margin-bottom: 8px;
@@ -49,12 +50,9 @@ export const DropDown = styled.div`
   font-family: "Manrope-Medium";
   font-weight: 500;
   color: var(--options-color);
-
- 
 `;
 
 export const Item = styled.div`
- 
   cursor: pointer;
   &:hover {
     color: var(--primary-text-color);

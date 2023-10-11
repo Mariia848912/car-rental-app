@@ -8,6 +8,7 @@ export const Backdrop = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
+
   background-color: var(--secondary-text-color);
   backdrop-filter: blur(1.2px);
 `;
@@ -19,12 +20,10 @@ export const Content = styled.div`
   left: 50%;
   width: 541px;
   transform: translate(-50%, -50%);
-
   padding: 40px;
 
   border-radius: 20px;
   background-color: #ffffff;
-  /* overflow: hidden; */
 `;
 
 export const CloseBtn = styled.button`

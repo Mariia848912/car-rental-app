@@ -1,7 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import { lazy } from 'react';
 import { SharedLayout } from "./components/SharedLayout";
-
+import { ToastContainer} from 'react-toastify';
+ import 'react-toastify/dist/ReactToastify.css';
 const HomePage = lazy(() => import('./pages/Home/Home'));
 const CatalogPage = lazy(() => import('./pages/Catalog/Catalog'));
 const FavoritesPage = lazy(() => import('./pages/Favorites/Favorites'));
@@ -20,6 +21,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
+      <ToastContainer autoClose={3000} />
     </>
   );
 }

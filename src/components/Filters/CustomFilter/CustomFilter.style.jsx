@@ -23,14 +23,17 @@ export const Button = styled.button`
   height: 48px;
   padding-top: 12px;
   padding-bottom: 12px;
+
   border-radius: 12px;
   border: none;
   background-color: var(--primary-bt-bg-color);
   color: var(--primary-bg-color);
+
   font-size: 14px;
   font-family: "Manrope-SemiBold";
   font-weight: 600;
   line-height: 1.4;
+  
   &:hover,
   &:focus {
     background-color: var(--accent-color);

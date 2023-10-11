@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { fetchAdverts } from "../../service/mockapi";
-import { limit, totalItems } from "../../utils/constant";
+import { limit } from "../../utils/constant";
 import { AdvertsList } from "../../components/AdvertsList/AdvertsListT";
 import Loader from "../../components/Common/Loader/Loader";
 import { ErrorText } from "../../components/Common/ErrorText/ErrorText";
 import { LoadMoreButton } from "../../components/Buttons/LoadMoreButton/LoadMoreButton";
 import { CustomFilter } from "../../components/Filters/CustomFilter/CustomFilter";
+import { toast } from "react-toastify";
 
 const Catalog = () => {
   const [adverts, setAdverts] = useState([]);
@@ -15,6 +16,7 @@ const Catalog = () => {
   const [page, setPage] = useState(1);
   const [error, setError] = useState(null);
   const [isLoading, setLoading] = useState(false);
+  const [hideButton, setHideButton] = useState(false);
 
   useEffect(() => {
     const getAdverts = async () => {
@@ -22,6 +24,11 @@ const Catalog = () => {
         setLoading(true);
         let newAdverts;
         newAdverts = await fetchAdverts(limit, page);
+        if (newAdverts.length === 0) {
+          setHideButton(true);
+          return toast.info(`Advertisements are out.`);
+        }
+
         setAdverts((prev) => [...prev, ...newAdverts]);
       } catch (error) {
         setError(error);
@@ -85,7 +92,7 @@ const Catalog = () => {
       {!error ? (
         <>
           <AdvertsList items={query ? advertsByQuery : adverts} />
-          {!query && adverts.length < totalItems && adverts.length >= limit && (
+          {!query && adverts.length >= limit && !hideButton && (
             <LoadMoreButton changePage={changePage} />
           )}
         </>

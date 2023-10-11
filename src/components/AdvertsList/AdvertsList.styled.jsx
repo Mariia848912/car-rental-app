@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ListI = styled.ul`
   display: flex;
-flex-wrap: wrap;
+  flex-wrap: wrap;
   row-gap: 50px;
   column-gap: 29px;
   margin-left: auto;

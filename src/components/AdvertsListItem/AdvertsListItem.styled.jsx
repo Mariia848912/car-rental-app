@@ -2,11 +2,10 @@ import styled from "styled-components";
 
 export const Item = styled.li`
   position: relative;
-   flex-basis: calc((100% - 58px) / 3);
+  flex-basis: calc((100% - 58px) / 3);
   @media screen and (min-width: 1216px) {
     flex-basis: calc((100% - 87px) / 4);
   }
- 
 `;
 export const Img = styled.img`
   height: 268px;
@@ -14,16 +13,17 @@ export const Img = styled.img`
   border-radius: 12px;
 `;
 export const ImgThumb = styled.div`
-  border-radius: 12px;
   margin-bottom: 14px;
+  border-radius: 12px;
 `;
 
 export const ButtonHeart = styled.button`
-  background-color: transparent;
+  position: absolute;
   top: 14px;
   right: 14px;
+
   border: none;
-  position: absolute;
+  background-color: transparent;
 `;
 
 export const Title = styled.h2`
@@ -57,6 +57,7 @@ export const InfoList = styled.ul`
   gap: 6px;
   height: 40px;
   overflow: hidden;
+  
   color: var(--secondary-text-color);
 `;
 

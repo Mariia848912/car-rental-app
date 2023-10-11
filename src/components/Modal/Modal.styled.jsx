@@ -7,6 +7,7 @@ export const Img = styled.img`
   width: 100%;
 `;
 export const ImgThumb = styled.div`
+  height: 240px;
   margin-bottom: 12px;
 `;
 export const Title = styled.h2`
@@ -28,6 +29,7 @@ export const InfoList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 4px 6px;
+
   color: var(--secondary-text-color);
   font-size: 12px;
 `;
@@ -45,17 +47,19 @@ export const Text = styled.p`
 `;
 
 export const TitleSecondInfo = styled.h3`
+  margin-top: 24px;
+  margin-bottom: 8px;
+
   font-family: "Manrope-Medium";
   font-weight: 500;
   line-height: 1.4;
   font-size: 14px;
-  margin-top: 24px;
-  margin-bottom: 8px;
 `;
 
 export const ItemConditions = styled.li`
   padding: 7px 14px;
   border-radius: 35px;
+
   letter-spacing: -0.24px;
   background-color: #f9f9f9;
 `;
@@ -72,8 +76,10 @@ export const Button = styled.a`
   padding-bottom: 12px;
   margin-top: 24px;
   border-radius: 12px;
+
   background-color: var(--primary-bt-bg-color);
   color: var(--primary-bg-color);
+  
   font-size: 14px;
   font-family: "Manrope-SemiBold";
   font-weight: 600;
