@@ -2,11 +2,13 @@ import PropTypes from "prop-types";
 
 import { AdvertsListItem } from "../AdvertsListItem/AdvertsListItem";
 import { ListI } from "./AdvertsList.styled";
+import { Empty } from "../Common/Empty/Empty";
+
 
 export const AdvertsList = ({ items }) => {
-  return (
+    return (
     <>
-      {items.length !== 0 && (
+        {items.length !== 0 ? (
         <ListI>
           {items.map(
             ({
@@ -49,7 +51,7 @@ export const AdvertsList = ({ items }) => {
             )
           )}
         </ListI>
-      )}
+      ) : ( <Empty name='list'/>)}
     </>
   );
 };

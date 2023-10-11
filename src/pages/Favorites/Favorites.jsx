@@ -1,5 +1,5 @@
 import { AdvertsList } from "../../components/AdvertsList/AdvertsListT";
-import { Empty } from "../../components/IsEmpty/Empty";
+import { Empty } from "../../components/Common/Empty/Empty";
 import { useFavorite } from "../../hooks/contectHooks";
 
 const Favorites = () => {

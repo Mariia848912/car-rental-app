@@ -1,5 +1,5 @@
 import { Img } from "./Placeholder.styled";
-import img from "../../img/noImageFound.jpg";
+import img from "../../../img/noImageFound.jpg";
 
 export const Placeholder = () => {
     return (

@@ -11,6 +11,7 @@ export const Box = styled.div`
 `;
 export const MainTitle = styled.h1`
   margin-bottom: 60px;
+
   font-family: "Manrope-SemiBold";
   font-weight: 600;
 `;
@@ -37,6 +38,7 @@ export const IconThumb = styled.div`
   margin-bottom: 20px;
   width: 40px;
   height: 40px;
+
   background-color: #f5f4fa;
   border-radius: 50%;
 `;
@@ -53,8 +55,10 @@ export const Button = styled(Link)`
   padding-top: 12px;
   padding-bottom: 12px;
   border-radius: 12px;
+
   background-color: var(--primary-bt-bg-color);
   color: var(--primary-bg-color);
+  
   font-size: 14px;
   font-family: "Manrope-SemiBold";
   font-weight: 600;
