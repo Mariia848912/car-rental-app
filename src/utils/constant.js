@@ -1,6 +1,5 @@
 export const limit = 8;
 
-export const totalItems = 33;
 export const KEY = "favourites";
 
 export const BRAND = [
