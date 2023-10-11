@@ -5,5 +5,9 @@ export const Box = styled.div`
   margin-left: auto;
   padding-left: 16px;
   padding-right: 16px;
-  width: 1200px;
+  width: 912px;
+ 
+  @media screen and (min-width: 1216px) {
+   width: 1216px;
+  }
 `;

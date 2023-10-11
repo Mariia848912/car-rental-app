@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
-import { CloseIcon } from "../../utils/icons";
+import { CloseIcon } from "../../../utils/icons";
 import { Backdrop, CloseBtn, Content } from "./ModalContainer.styled";
 
 const modalContainer = document.getElementById("modal-root");
