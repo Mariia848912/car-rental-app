@@ -1,15 +1,57 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import { BRAND, PRICE } from "../../../utils/constant";
 import { SelectCustom } from "../CustomSelect/SelectCustom";
-import { Box, InputBox } from "./CustomFilter.style";
+import { Box, Button, InputBox } from "./CustomFilter.style";
 import { CustomInput } from "../CustomInput/CustomInput";
 
-export const CustomFilter = () => {
+export const CustomFilter = ({ getQuery, resetQuery }) => {
   const [brand, setBrand] = useState("Enter the text");
-  const [price, setPrice] = useState(null);
-  const [mileageFrom, setMileageFrom] = useState('');
-  const [mileageTo, setMileageTo] = useState('');
+  const [price, setPrice] = useState("");
+  const [mileageFrom, setMileageFrom] = useState("");
+  const [mileageTo, setMileageTo] = useState("");
+  const handelReset = () => {
+    setBrand("Enter the text");
+    setPrice("");
+    setMileageFrom("");
+    setMileageTo("");
+    resetQuery();
+  };
 
+  const handelSubmit = () => {
+    let query = {};
+    if (brand !== "Enter the text") {
+      query = {
+        ...query,
+        brand,
+      };
+    }
+    if (price) {
+      {
+        query = {
+          ...query,
+          price,
+        };
+      }
+    }
+    if (mileageFrom) {
+      {
+        query = {
+          ...query,
+          mileageFrom,
+        };
+      }
+    }
+    if (mileageTo) {
+      {
+        query = {
+          ...query,
+          mileageTo,
+        };
+      }
+    }
+    getQuery(query);
+  };
   const stylePrice = {
     width: " 125px",
   };
@@ -46,7 +88,7 @@ export const CustomFilter = () => {
           text="From"
           type="text"
           title="Сar mileage / km"
-          min='0'
+          min="0"
           inputStyle={styleMileageFrom}
           getValue={setMileageFrom}
           values={mileageFrom}
@@ -55,12 +97,23 @@ export const CustomFilter = () => {
           name="mileageTo"
           text="To"
           type="text"
-          min='0'
+          min="0"
           inputStyle={stylemileageTo}
           getValue={setMileageTo}
           values={mileageTo}
         />
       </InputBox>
+      <Button type="button" onClick={handelSubmit}>
+        Search
+      </Button>
+      <Button type="reset" onClick={handelReset}>
+        Reset
+      </Button>
     </Box>
   );
+};
+
+CustomFilter.propTypes = {
+  getQuery: PropTypes.func.isRequired,
+  resetQuery: PropTypes.func.isRequired,
 };

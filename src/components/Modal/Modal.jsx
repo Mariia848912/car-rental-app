@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Placeholder } from "../Placeholder/Placeholder";
+import { Placeholder } from "../Common/Placeholder/Placeholder";
 import { cutCity } from "../../utils/cutCity";
 import { cutCountry } from "../../utils/cutCountry";
 import { changeType } from "../../utils/changeType";

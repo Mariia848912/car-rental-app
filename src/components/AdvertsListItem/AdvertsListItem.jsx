@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import { Placeholder } from "../Placeholder/Placeholder";
+import { Placeholder } from "../Common/Placeholder/Placeholder";
 import { cutCity } from "../../utils/cutCity";
 import { cutCountry } from "../../utils/cutCountry";
 import { changeType } from "../../utils/changeType";
@@ -21,7 +21,7 @@ import { useFavorite } from "../../hooks/contectHooks";
 import { LeanButton } from "../Buttons/LeanButton/LeanButton";
 import { Modal } from "../Modal/Modal";
 import { useToggle } from "../../hooks/useToggle";
-import { ModalContainer } from "../ModalContainer/ModalContainer";
+import { ModalContainer } from "../Modal/ModalContainer/ModalContainer";
 import { changeAccessories } from "../../utils/changeAccessories";
 
 export const AdvertsListItem = ({

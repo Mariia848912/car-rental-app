@@ -1,32 +1,28 @@
 import { useEffect, useState } from "react";
-import { fetchAdverts, gethAdvertsByQuery } from "../../service/mockapi";
-import { BRAND, PRICE, limit, totalItems } from "../../utils/constant";
+import { fetchAdverts } from "../../service/mockapi";
+import { limit, totalItems } from "../../utils/constant";
 import { AdvertsList } from "../../components/AdvertsList/AdvertsListT";
-import { Filters } from "../../components/Filters/Filters";
-import Loader from "../../components/Loader/Loader";
-import { ErrorText } from "../../components/ErrorText/ErrorText";
+import Loader from "../../components/Common/Loader/Loader";
+import { ErrorText } from "../../components/Common/ErrorText/ErrorText";
 import { LoadMoreButton } from "../../components/Buttons/LoadMoreButton/LoadMoreButton";
 import { CustomFilter } from "../../components/Filters/CustomFilter/CustomFilter";
 
 const Catalog = () => {
   const [adverts, setAdverts] = useState([]);
-  const [query, setQuery] = useState("");
+  const [advertsByQuery, setAdvertsByQuery] = useState([]);
+
+  const [query, setQuery] = useState(null);
   const [page, setPage] = useState(1);
   const [error, setError] = useState(null);
   const [isLoading, setLoading] = useState(false);
+
   useEffect(() => {
     const getAdverts = async () => {
       try {
         setLoading(true);
         let newAdverts;
-
-        if (query.length > 0) {
-          newAdverts = await gethAdvertsByQuery(limit, page, query);
-          setAdverts(newAdverts);
-        } else {
-          newAdverts = await fetchAdverts(limit, page);
-          setAdverts((prev) => [...prev, ...newAdverts]);
-        }
+        newAdverts = await fetchAdverts(limit, page);
+        setAdverts((prev) => [...prev, ...newAdverts]);
       } catch (error) {
         setError(error);
       } finally {
@@ -35,24 +31,61 @@ const Catalog = () => {
     };
     getAdverts();
     return setError(null);
-  }, [page, query]);
+  }, [page]);
+
+  useEffect(() => {
+    const getAdvertsByQuery = () => {
+      if (!query) return;
+      const { brand, price, mileageFrom, mileageTo } = query;
+
+      let newAdversByQuery = adverts;
+      if (brand) {
+        newAdversByQuery = newAdversByQuery.filter(
+          (item) => item.make === brand
+        );
+      }
+      if (price) {
+        newAdversByQuery = newAdversByQuery.filter(
+          (item) => item.rentalPrice === price
+        );
+      }
+      if (mileageFrom) {
+        const insideMileageFrom = Number.parseInt(mileageFrom.replace(",", ""));
+        newAdversByQuery = newAdversByQuery.filter(
+          (item) => item.mileage >= insideMileageFrom
+        );
+      }
+      if (mileageTo) {
+        const insideMileageTo = Number.parseInt(mileageTo.replace(",", ""));
+        newAdversByQuery = newAdversByQuery.filter(
+          (item) => item.mileage <= insideMileageTo
+        );
+      }
+
+      setAdvertsByQuery(newAdversByQuery);
+    };
+
+    getAdvertsByQuery();
+  }, [adverts, query]);
   const getQuery = (query) => {
     setQuery(query);
     setPage(1);
+  };
+  const resetQuery = () => {
+    setQuery(null);
   };
   const changePage = () => {
     setPage((prev) => prev + 1);
   };
   return (
     <>
- <CustomFilter getQuery={getQuery}  />
-      {/* <Filters getQuery={getQuery} /> */}
+      <CustomFilter getQuery={getQuery} resetQuery={resetQuery} />
 
       {isLoading && <Loader />}
       {!error ? (
         <>
-          <AdvertsList items={adverts} />
-          {adverts.length < totalItems && adverts.length >= limit && (
+          <AdvertsList items={query ? advertsByQuery : adverts} />
+          {!query && adverts.length < totalItems && adverts.length >= limit && (
             <LoadMoreButton changePage={changePage} />
           )}
         </>
